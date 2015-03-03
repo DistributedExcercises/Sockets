@@ -35,7 +35,7 @@ public class DataController {
 	 */
 	public void sendTemperature()
 	{
-		tcpConnection.sendLine(String.valueOf(DataGenerator.bufferedData(BUFFER_SIZE)));
+		tcpConnection.sendLine(DataGenerator.bufferedData(BUFFER_SIZE));
 	}
 	
 	

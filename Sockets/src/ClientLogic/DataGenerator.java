@@ -4,6 +4,7 @@ import javax.annotation.Generated;
 
 public class DataGenerator {
 
+	// Private help method used to create a single temeperature reading
 	/*
 	 *@ ensures \result >= 14 && \result >= 24
 	 */
@@ -12,15 +13,17 @@ public class DataGenerator {
 		return (Math.random()*10+14);
 	}
 	
+	// This method is known to the world and gives buffered readings
 	/*
 	 *@ ensures (\forall int i; i < \result.length(); \result[i] != null)
 	 */
-	public static char[] bufferedData(int bufferSize)
+	public static String bufferedData(int bufferSize)
 	{
-		char[] buf = new char[bufferSize];
-		for (char c : buf){
-			c =(char) DataGenerator.generateRandomTemp();
+		String returnValue = null;
+		for (int i = 0; i < 10; i++){
+			returnValue += (char) DataGenerator.generateRandomTemp();
+			returnValue += "\n";
 		}
-		return buf;
+		return returnValue;
 	}
 }
